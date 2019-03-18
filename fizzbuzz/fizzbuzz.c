@@ -23,7 +23,6 @@ int fizzbuzz(int n)
             counter += 1;
         }
     }
-    
     return counter;
 }
 
