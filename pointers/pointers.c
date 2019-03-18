@@ -8,7 +8,16 @@
 */
 void string_copy(char *x, char *y)
 {
-
+    
+    char *copy[512];
+    *x = copy;
+    int index = 0;
+    while (*y != '\0') {
+        x[index] = *y;
+        y = y + 1;
+        index += 1;
+    }
+    x[index] = '\0';
 }
 
 /*
@@ -40,6 +49,12 @@ char *find_string(char *haystack, char *needle)
 #ifndef TESTING
 int main(void)
 {
+//    char *x = NULL;
+//    char *y = "Hello";
+//
+//    string_copy(&x, &y);
+//    printf("%s\n", x);
+    
     char *found_char = find_char(hello, 'e');
     char *found_string = find_string(world, "or");
 
