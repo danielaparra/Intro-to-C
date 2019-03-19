@@ -25,7 +25,8 @@ typedef struct Person {
 Person *createPerson(char *name, int age, int height, int weight)
 {
     Person *person = malloc(sizeof(Person));
-    person->name = name;
+    person->name = malloc(sizeof(char) * strlen(name));
+    person->name = string_dup(name);
     person->age = age;
     person->height = height;
     person->weight = weight;
@@ -38,7 +39,8 @@ Person *createPerson(char *name, int age, int height, int weight)
 */
 void destroyPerson(Person *who)
 {
-
+    free(who->name);
+    free(who);
 }
 
 #ifndef TESTING
