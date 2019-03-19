@@ -20,6 +20,7 @@ char *string_dup(char *src)
         newsrc = newsrc + 1;
         src = src + 1;
     }
+    *newsrc = '\0';
 
     return start;
 }
@@ -54,7 +55,15 @@ void mem_copy(void *dest, const void *src, int n)
 */
 void *resize_memory(void *ptr, int old_size, int new_size)
 {
+    if (old_size != new_size) {
+        void *newptr = malloc(sizeof(ptr[0]) * new_size);
+        mem_copy(newptr, ptr, sizeof(ptr[0]) * new_size);
+        free(ptr);
 
+        return newptr;
+    } 
+
+    return ptr;
 }
 
 #ifndef TESTING
