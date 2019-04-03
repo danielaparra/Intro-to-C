@@ -25,13 +25,13 @@ char *test_mem_copy()
     
     mem_copy(target, numbers, n * sizeof(int));
     mu_assert(check_arrays(target, numbers, n, n) == 1, "Your mem_copy function did not correctly copy an array of integers.");
-
+    printf("TEST 1\n");
     char src[50] = "http://lambdaschool.com";
     char dest[50];
 
     mem_copy(dest, src, strlen(src)+1);
     mu_assert(check_strings(dest, src) == 0, "Your mem_copy function did not correctly copy an array of characters.");
-
+    printf("TEST 2\n");
     free(target);
 
     return NULL;

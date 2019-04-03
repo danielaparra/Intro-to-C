@@ -12,7 +12,9 @@ char *test_person_create()
     mu_assert(tony->weight == 140, "Person_create struct weight field does not match the expected result.")
 
     free(tony->name);
+    printf("here1");
     free(tony);
+    printf("here2");
 
     return NULL;
 }
@@ -21,6 +23,7 @@ char *test_person_destroy()
 {
     Person *kurt = createPerson("Kurt Hugo Schneider", 29, 63, 130);
     destroyPerson(kurt);
+    printf("here3");
 
     return NULL;
 }
